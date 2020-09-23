@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ing.findmyrepo.viewmodel.UserRepoDetailViewModel" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+
+            android:id="@+id/rl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+
+                android:id="@+id/iv_back"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_back"
+                android:contentDescription="@null"
+                android:onClick="@{vm.onBackPressed}">
+
+            </ImageView>
+
+            <TextView
+
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/iv_favorite"
+                android:layout_toEndOf="@+id/iv_back"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{vm.repo.name}"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                tools:text="Jake Wharton">
+
+            </TextView>
+
+            <ImageView
+
+                android:id="@+id/iv_favorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@{vm.repo.favorite? @drawable/ic_favorite : @drawable/ic_un_favorite}">
+
+            </ImageView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                app:image="@{vm.repo.owner.avatar_url}"
+                app:riv_corner_radius="10dp"
+                app:riv_mutate_background="true">
+
+            </com.makeramen.roundedimageview.RoundedImageView>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginStart="10dp"
+                android:text="@{vm.repo.owner.login}"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                tools:text="Jake Wharton">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:ellipsize="end"
+            android:text="@{`Stars: `.concat(String.valueOf(vm.repo.stargazers_count))}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:text="Stars:100">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:text="@{`Open Issues: `.concat(String.valueOf(vm.repo.open_issues))}"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:text="Open Issues: 3">
+
+        </TextView>
+
+    </LinearLayout>
+
+</layout>

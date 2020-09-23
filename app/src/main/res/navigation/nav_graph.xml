@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userRepoFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+
+        android:id="@+id/userRepoFragment"
+        android:name="com.ing.findmyrepo.view.fragment.UserRepoFragment"
+        android:label="UserRepoFragment">
+
+        <action
+            android:id="@+id/action_userRepoFragment_to_userRepoDetailFragment"
+            app:destination="@id/userRepoDetailFragment"
+            app:popUpTo="@id/userRepoFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/userRepoDetailFragment"
+        android:name="com.ing.findmyrepo.view.fragment.UserRepoDetailFragment"
+        android:label="UserRepoDetailFragment" />
+
+</navigation>
